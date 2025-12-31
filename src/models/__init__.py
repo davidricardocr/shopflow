@@ -1,20 +1,20 @@
 """Model implementations for ShopFlow."""
 
-from src.models.base import BaseModel, SklearnModelWrapper
-from src.models.baseline import (
+from .base import BaseModel, SklearnModelWrapper
+from .baseline import (
     BaselineLogisticRegression,
     OptimizedLogisticRegression,
     create_baseline_model,
     create_optimized_lr,
 )
-from src.models.improved import (
+from .improved import (
     RandomForestModel,
     GradientBoostingModel,
     XGBoostModel,
     LightGBMModel,
     tune_with_optuna,
 )
-from src.models.factory import (
+from .factory import (
     ModelFactory,
     MODEL_REGISTRY,
     get_baseline,

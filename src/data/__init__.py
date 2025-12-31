@@ -1,6 +1,6 @@
 """Data loading utilities for ShopFlow."""
 
-from src.data.loader import (
+from .loader import (
     load_dataset,
     load_train_test,
     get_feature_target_split,

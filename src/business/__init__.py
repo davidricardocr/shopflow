@@ -1,6 +1,6 @@
 """Business cost-benefit analysis for ShopFlow."""
 
-from src.business.cost_analysis import (
+from .cost_analysis import (
     PredictionOutcome,
     calculate_confusion_matrix_from_predictions,
     calculate_financial_impact,

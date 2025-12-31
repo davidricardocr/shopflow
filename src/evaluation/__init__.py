@@ -1,6 +1,6 @@
 """Evaluation metrics and visualization for ShopFlow."""
 
-from src.evaluation.metrics import (
+from .metrics import (
     evaluate_model,
     evaluate_by_category,
     get_confusion_matrix_details,
@@ -9,11 +9,11 @@ from src.evaluation.metrics import (
     format_classification_report,
     get_curve_data,
 )
-from src.evaluation.threshold import (
+from .threshold import (
     ThresholdOptimizer,
     find_threshold_for_target_metric,
 )
-from src.evaluation.visualization import (
+from .visualization import (
     plot_confusion_matrix,
     plot_roc_curve,
     plot_precision_recall_curve,

@@ -5,7 +5,7 @@ A machine learning project for predicting product returns in e-commerce,
 with business-aligned metrics and cost-benefit optimization.
 """
 
-from src.config import (
+from .config import (
     business_config,
     data_config,
     model_config,

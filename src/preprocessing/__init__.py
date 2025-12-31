@@ -1,12 +1,12 @@
 """Preprocessing pipeline for ShopFlow."""
 
-from src.preprocessing.pipeline import (
+from .pipeline import (
     PreprocessingPipeline,
     create_baseline_pipeline,
     create_improved_pipeline,
     preprocess_for_baseline,
 )
-from src.preprocessing.transformers import (
+from .transformers import (
     SafeLabelEncoder,
     MissingValueImputer,
     FeatureSelector,
