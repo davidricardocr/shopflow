@@ -11,7 +11,7 @@ from typing import Tuple, Optional
 import pandas as pd
 from loguru import logger
 
-from src.config import DATA_DIR, data_config
+from ..config import DATA_DIR, data_config
 
 
 class DataLoadError(Exception):

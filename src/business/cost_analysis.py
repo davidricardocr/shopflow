@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from loguru import logger
 
-from src.config import business_config
+from ..config import business_config
 
 
 @dataclass

@@ -11,8 +11,8 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from loguru import logger
 
-from src.config import model_config
-from src.models.base import BaseModel, SklearnModelWrapper
+from ..config import model_config
+from .base import BaseModel, SklearnModelWrapper
 
 
 class BaselineLogisticRegression(SklearnModelWrapper):

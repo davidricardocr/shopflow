@@ -23,8 +23,8 @@ from sklearn.metrics import (
 )
 from loguru import logger
 
-from src.config import data_config, business_config
-from src.business.cost_analysis import (
+from ..config import data_config, business_config
+from ..business.cost_analysis import (
     calculate_expected_value,
     calculate_confusion_matrix_from_predictions,
     calculate_financial_impact,

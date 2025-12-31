@@ -15,7 +15,7 @@ import joblib
 from pathlib import Path
 from loguru import logger
 
-from src.config import MODELS_DIR, model_config
+from ..config import MODELS_DIR, model_config
 
 
 class BaseModel(ABC):
@@ -47,10 +47,19 @@ class BaseModel(ABC):
         self.name = name
         self.model: Any = None
         self.is_fitted = False
+        self._is_fitted = False  # Alias for compatibility
         self.metadata: Dict[str, Any] = {
             "name": name,
             "random_state": model_config.random_state,
         }
+    
+    def _check_is_fitted(self) -> None:
+        """Check if model has been fitted, raise error if not."""
+        if not self.is_fitted and not self._is_fitted:
+            raise RuntimeError(
+                f"Model {self.name} has not been fitted yet. "
+                "Call fit() before predict()."
+            )
     
     @abstractmethod
     def fit(self, X: np.ndarray, y: np.ndarray) -> "BaseModel":

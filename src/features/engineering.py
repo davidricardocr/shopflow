@@ -12,7 +12,7 @@ import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from loguru import logger
 
-from src.config import data_config
+from ..config import data_config
 
 
 class FeatureEngineer(BaseEstimator, TransformerMixin):
@@ -177,11 +177,13 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
         # Feature: Days Since Last Purchase Bucket
         # Hypothesis: Very recent or very old last purchases have different patterns
         if "days_since_last_purchase" in X.columns:
-            X["recency_bucket"] = pd.cut(
+            recency_cat = pd.cut(
                 X["days_since_last_purchase"],
-                bins=[0, 7, 30, 90, float("inf")],
+                bins=[-float("inf"), 7, 30, 90, float("inf")],
                 labels=[0, 1, 2, 3]  # 0=very recent, 3=very old
-            ).astype(int)
+            )
+            # Handle NaN values by filling with median bucket (1)
+            X["recency_bucket"] = recency_cat.cat.codes.replace(-1, 1)
             
             self.features_created.append("recency_bucket")
             self.feature_hypotheses["recency_bucket"] = (

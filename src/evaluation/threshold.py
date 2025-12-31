@@ -11,8 +11,8 @@ import numpy as np
 import pandas as pd
 from loguru import logger
 
-from src.config import business_config, deployment_criteria
-from src.business.cost_analysis import (
+from ..config import business_config, deployment_criteria
+from ..business.cost_analysis import (
     calculate_expected_value_at_threshold,
     find_optimal_threshold as find_optimal_ev_threshold,
 )

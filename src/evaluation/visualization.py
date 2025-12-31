@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import confusion_matrix, roc_curve, precision_recall_curve
 
-from src.config import business_config
+from ..config import business_config
 
 
 # Set style
@@ -460,7 +460,7 @@ def create_evaluation_dashboard(
     ax6 = fig.add_subplot(gs[2, :])
     ax6.axis("off")
     
-    from src.evaluation.metrics import evaluate_model
+    from .metrics import evaluate_model
     metrics = evaluate_model(y_true, y_pred, y_proba)
     
     summary_text = (

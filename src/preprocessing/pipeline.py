@@ -14,8 +14,8 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from loguru import logger
 
-from src.config import data_config
-from src.preprocessing.transformers import (
+from ..config import data_config
+from .transformers import (
     SafeLabelEncoder,
     MissingValueImputer,
     FeatureSelector,

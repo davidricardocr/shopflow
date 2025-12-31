@@ -7,14 +7,16 @@ providing a clean interface for model selection and configuration.
 
 from typing import Dict, Any, Optional, Type, List
 
+
+
 from loguru import logger
 
-from src.models.base import BaseModel
-from src.models.baseline import (
+from .base import BaseModel
+from .baseline import (
     BaselineLogisticRegression,
     OptimizedLogisticRegression,
 )
-from src.models.improved import (
+from .improved import (
     RandomForestModel,
     GradientBoostingModel,
     XGBoostModel,
@@ -160,7 +162,7 @@ def create_model_ensemble(
         ... ]
         >>> ensemble = create_model_ensemble(configs)
     """
-    from sklearn.ensemble import VotingClassifier
+    
     
     estimators = []
     for i, config in enumerate(model_configs):
